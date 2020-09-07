@@ -1,0 +1,48 @@
+{
+    "global": {
+        "desk": {
+            "PL": "11",
+            "RU": "22",
+            "EN": "24"
+        },
+        "responsible": {
+            "PL": "10",
+            "RU": "89",
+            "EN": "110"
+        },
+        "campaign": {
+            "Maximizer": "Profit Maximizer",
+            "Код Успеха про": "Код Успеха (pro)",
+            "Код Успеха": "Код Успеха",
+            "Общее Дело": "Общее Дело",
+            "Pattern": "Pattern Trader",
+            "Cotytdzien": "Cotyzien50",
+            "Bitcoin Union": "Bitcoin Union - EN",
+			"Quantum Systems": "Quantum Systems"
+        }
+    },
+    "partner": {
+        "desk": {
+            "PL": "3",
+            "RU": "2",
+            "EN": "23",
+            "IT": "4"
+        },
+        "responsible": {
+            "PL": "22",
+            "RU": "21",
+            "EN": "13513",
+            "IT": "132"
+        },
+        "campaign": {
+            "Maximizer": "Profit Maximizer PL",
+            "Pattern": "Pattern Trader",
+            "Cotytdzien": "5000dzien",
+            "Bitcoin Union": "Bitcoin Union EN",
+            "Общее Дело": "Общее Дело",
+            "Oil Profit": "Oil Profit - IT",
+            "True Profit": "True Profit PL",
+			"Quantum Systems": "Quantum Systems"
+        }
+    }
+}
