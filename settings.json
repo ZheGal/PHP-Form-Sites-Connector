@@ -1,0 +1,15 @@
+{
+	"offer"	:	"",
+	"pid"	:	"",
+	"return"	:	"thanks.php",
+	"yandex"	:	"",
+	"facebook"	:	"",
+    "partners": {
+        "global": "1",
+        "neogara": "0",
+        "partner": "0"
+    },
+    "language": "",
+    "sitename": "",
+    "domain": ""
+}
