@@ -18,8 +18,11 @@ $('body')
                 cache: false,
                 success: function(response) {
                     if (response.SUCCESS) {
-						let search = location.search.substring(1);
-                        fetch('settings.json').then(d=> d.json()).then(res=>{window.location = res.return + '?' + search})
+                        let search = location.search.substring(1);
+						if (search != '') {
+							search = '?' + search;
+						}
+                        fetch('settings.json').then(d=> d.json()).then(res=>{window.location = res.return + search})
                     } else {
                         console.error(response.MESSAGE);
                     }

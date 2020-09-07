@@ -131,8 +131,9 @@ class Parameters
         if (isset($parm['ynd'])) {
             $url[] = 'ynd='.$parm['ynd'];
         }
-        if (!empty($url)) {
-            return '?'.implode("&",$url);
+        $url_str = implode("&",$url);
+        if (!empty($url_str)) {
+            return '?'.$url_str;
         }
     }
 }
