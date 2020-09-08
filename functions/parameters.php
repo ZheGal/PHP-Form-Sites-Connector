@@ -125,11 +125,8 @@ class Parameters
             $parm['ynd'] = $parm['utm_yandex'];
             unset($parm['utm_yandex']);
         }
-        if (isset($parm['pxl'])) {
-            $url[] = 'pxl='.$parm['pxl'];
-        }
-        if (isset($parm['ynd'])) {
-            $url[] = 'ynd='.$parm['ynd'];
+        foreach ($parm as $item => $val) {
+            $url[] = "{$item}={$val}";
         }
         $url_str = implode("&",$url);
         if (!empty($url_str)) {
