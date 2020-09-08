@@ -136,4 +136,13 @@ class Parameters
             return '?'.$url_str;
         }
     }
+
+    public function get_setting($str)
+    {
+        $set = $this->settings;
+        if (isset($set[$str])) {
+            return $set[$str];
+        }
+        return false;
+    }
 }
