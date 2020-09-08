@@ -115,7 +115,7 @@ class Parameters
 
     public function get_utm_sendform()
     {
-        $parm = $_REQUEST;
+        $parm = $_GET;
         $url = [];
         if (isset($parm['utm_facebook'])) {
             $parm['pxl'] = $parm['utm_facebook'];
@@ -125,10 +125,12 @@ class Parameters
             $parm['ynd'] = $parm['utm_yandex'];
             unset($parm['utm_yandex']);
         }
-        foreach ($parm as $item => $val) {
-            $url[] = "{$item}={$val}";
+        if (!empty($parm)) {
+            foreach ($parm as $item => $val) {
+                $url[] = "{$item}={$val}";
+            }
+            $url_str = implode("&",$url);
         }
-        $url_str = implode("&",$url);
         if (!empty($url_str)) {
             return '?'.$url_str;
         }
