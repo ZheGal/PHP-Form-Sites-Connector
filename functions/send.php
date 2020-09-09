@@ -118,7 +118,7 @@ class Sender
             'desk_id' => $this->desk_id,
             'responsible' => $this->responsible,
             'date_of_birth' => '',
-            'additionalField20' => '',
+            'additionalField20' => htmlentities($_REQUEST["pid"],ENT_COMPAT,'UTF-8'),
             'additionalField22' => '',
             'additionalField23' => '',
             'additionalField24' => '',
@@ -131,8 +131,10 @@ class Sender
             'additionalField31' => htmlentities($_REQUEST["utm_medium"],ENT_COMPAT,'UTF-8'),
             'additionalField32' => htmlentities($_REQUEST["utm_campaign"],ENT_COMPAT,'UTF-8'),
             'additionalField33' => htmlentities($_REQUEST["utm_content"],ENT_COMPAT,'UTF-8'),
-            'additionalField34' => '',
-            'additionalField35' => '',
+            'additionalField34' => htmlentities($_REQUEST["sub1"],ENT_COMPAT,'UTF-8'),
+            'additionalField35' => htmlentities($_REQUEST["sub2"],ENT_COMPAT,'UTF-8'),
+            'additionalField36' => htmlentities($_REQUEST["sub3"],ENT_COMPAT,'UTF-8'),
+            'additionalField37' => htmlentities($_REQUEST["sub4"],ENT_COMPAT,'UTF-8'),
         ];
         $params = array_diff($params, array(''));
         $params['key'] = md5($params['key'] . $params['rand_param']);
