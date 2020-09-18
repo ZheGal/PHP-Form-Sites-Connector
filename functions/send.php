@@ -2,15 +2,22 @@
 
 if($_POST){
     $app = new Sender;
+    $debug = ($_GET['debug']) ? $_GET['debug'] : '';
     $crm = $app->send_to_crm();
     if ($crm) {
         $mail = $app->send_email('kovalenkojurij93@gmail.com');
-        echo $mail;
+        if ($debug == 'yes') {
+            echo json_encode([$app->apicrm, $mail]);
+        } else {
+            echo $mail;
+        }
     }
 }
 
 class Sender
 {
+    public $apicrm = [];
+
     public function __construct()
     {
         $this->get_settings();
@@ -141,6 +148,7 @@ class Sender
         $params = array_diff($params,array(''));
         $url = $this->api['url'].'api/v_2/crm/CreateLead?'.http_build_query($params);
         $api = json_decode(file_get_contents($url),1);
+        $this->apicrm = $api;
         if ($api['result'] == 'success') {
             return true;
         }
