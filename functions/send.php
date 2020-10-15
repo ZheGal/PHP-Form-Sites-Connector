@@ -142,6 +142,7 @@ class Sender
             'additionalField35' => htmlentities($_REQUEST["sub2"],ENT_COMPAT,'UTF-8'),
             'additionalField36' => htmlentities($_REQUEST["sub3"],ENT_COMPAT,'UTF-8'),
             'additionalField37' => htmlentities($_REQUEST["sub4"],ENT_COMPAT,'UTF-8'),
+            'additionalField38' => htmlentities($_REQUEST["txt"],ENT_COMPAT,'UTF-8'),
         ];
         $params = array_diff($params, array(''));
         $params['key'] = md5($params['key'] . $params['rand_param']);

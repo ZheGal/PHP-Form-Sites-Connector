@@ -21,6 +21,22 @@ class Parameters
         return null;
     }
 
+    public function code_metrika_thanks()
+    {
+        if ($this->settings['yandex'] && $this->settings['yandex'] != '0') {
+            return "<script>ym({$this->settings['yandex']},'reachGoal','formSubmit')</script>";
+        }
+        return null;
+    }
+
+    public function code_metrika_targetclick()
+    {
+        if ($this->settings['yandex'] && $this->settings['yandex'] != '0') {
+            return "<script>ym({$this->settings['yandex']},'targetclick','formSubmit')</script>";
+        }
+        return null;
+    }
+
     public function code_pixel($event = "Lead")
     {
         if ($this->settings['facebook'] && $this->settings['facebook'] != '0') {
