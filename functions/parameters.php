@@ -74,12 +74,16 @@ class Parameters
     {
         if ($partner == 'neogara') {
             $query = [];
+            $query['group'] = ($this->settings['group']) ? $this->settings['group'] : null;
             $query['offer'] = ($this->settings['offer']) ? $this->settings['offer'] : null;
             $query['pid'] = ($this->settings['pid']) ? $this->settings['pid'] : null;
             $query['pid_utm'] = ($this->settings['pid_utm']) ? $this->settings['pid_utm'] : null;
             $query['return'] = ($this->settings['return']) ? $this->settings['return'] : null;
             if (($query['return'] != null or $query['return'] != '') && !empty($_SERVER['QUERY_STRING'])) {
                 $query['return'] .= '?' . $_SERVER['QUERY_STRING'];
+            }
+            if (isset($query['group']) && !empty($query['group']) && $query['group'] != '') {
+                unset($query['offer']);
             }
             $query = array_diff($query, array(''));
             $http_query = (!empty($query)) ? '?' . http_build_query($query) : null;
