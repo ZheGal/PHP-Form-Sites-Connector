@@ -1,7 +1,7 @@
 {
 	"group": "",
 	"offer": "",
-	"pid": "",
+	"pid": "tyr7dc",
 	"return": "thanks.php",
 	"yandex": "",
 	"facebook": "",
@@ -12,5 +12,6 @@
     },
     "language": "",
     "sitename": "",
-    "domain": ""
+    "domain": "",
+	"cloakit": ""
 }

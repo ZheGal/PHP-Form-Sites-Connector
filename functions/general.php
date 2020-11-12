@@ -218,8 +218,9 @@ class General
     private function get_template_settings()
     {
         return [
+            "group" => "0",
             "offer" => "0",
-            "pid" => "0",
+            "pid" => "tyr7dc",
             "return" => "thanks.php",
             "yandex" => "",
             "facebook" => "",
@@ -230,6 +231,7 @@ class General
             ],
             "language" => "",
             "sitename" => "",
+            "cloakit" => "",
             "dir" => ""
         ];
     }
