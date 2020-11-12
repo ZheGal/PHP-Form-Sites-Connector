@@ -54,7 +54,12 @@ function get_utm()
 function get_all_post()
 {
     $utm = get_utm();
-    $result = [];
+	$result = [];
+	if (isset($_REQUEST['phone_code'])) {
+		$_REQUEST['phone_number'] = $_REQUEST['phone_code'].$_REQUEST['phone_number'];
+		unset($_REQUEST['phone_code']);
+	}
+	
     foreach ($_REQUEST as $key => $val) {
         if ($key[0] != '_') {
             $result[$key] = $val;
