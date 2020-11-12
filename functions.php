@@ -16,6 +16,7 @@ $view = $site->render([
     'pixel_img' => $parm->code_pixel_img("Lead"),
     'partner' => $parm->get_partner_script($site->get_partner()),
     'neogara' => $parm->get_neogara_script($site->get_partner()),
+    'hiddens' => $parm->get_utm_params(),
     'number' => $parm->get_phone_code(),
     'utm_form' => $parm->get_utm_sendform()
 ]);
