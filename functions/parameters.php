@@ -114,7 +114,7 @@ class Parameters
     {
         extract($opt);
         ob_start();
-        require_once($path);
+        require($path);
         $content = ob_get_contents();
         ob_end_clean();
         return $content;
