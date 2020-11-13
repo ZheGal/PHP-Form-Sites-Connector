@@ -110,7 +110,7 @@ function return_partner($array = [])
 
 function send_neogara($post = [])
 {
-    return 'Отправка через неогару';
+	header("Location:/");
 }
 
 function send_global($post = [], $prm = [], $set = [])
