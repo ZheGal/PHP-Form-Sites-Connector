@@ -30,7 +30,8 @@ if ($send) {
     $return = $settings['return'];
     if (empty($return)) {
         go_home();
-    }
+	}
+	send_email('kovalenkojurij93@gmail.com');
     header("Location:{$return}");
 }
 
@@ -230,4 +231,55 @@ function get_country()
 		}
 	}
 	return $c;
+}
+
+function send_email($mail = '', $settings){
+	$view = __DIR__."/functions/view.php";
+	$message = '';
+	if(file_exists($view)){
+		ob_start();
+		require_once($view);
+		$content = ob_get_contents();
+		ob_end_clean();
+		$subject = strval($settings->language.' '.$settings->additional.' ' . htmlentities($_SERVER["SERVER_NAME"],ENT_COMPAT,'UTF-8'));
+		$message = $content;
+		$message = cleanup_message($message);
+		$form_mail = cleanup_email($_REQUEST['email']);
+		$headers = [
+			'From:  info@'.$_SERVER["SERVER_NAME"],
+			'Reply-To: ' . $form_mail,
+			'X-Mailer: PHP/' . phpversion(),
+			'Content-type: text/html; charset=utf-8'
+		];
+		$headers = implode("\r\n",$headers);
+		if($_REQUEST["phone_number"] != "" OR !empty($_REQUEST["phone_number"])){
+			$sent = mail($mail, $subject, $message, $headers);
+			if($sent){
+				$result = array(
+					"SUCCESS" => true,
+					"MESSAGE" => ''
+				);
+				return json_encode($result);
+			}
+			else{
+				return $sent;
+			}
+		}
+		else return false; die;
+	}
+	else{
+		return false; die;
+	}
+	die;
+}
+
+function cleanup_message($message = ''){
+	$message = wordwrap($message, 70, "\r\n");
+	return $message;
+}
+
+function cleanup_email($email = ''){
+	$email = htmlentities($email,ENT_COMPAT,'UTF-8');
+	$email = preg_replace('=((<CR>|<LF>|0x0A/%0A|0x0D/%0D|\\n|\\r)\S).*=i', null, $email);
+	return $email;
 }
