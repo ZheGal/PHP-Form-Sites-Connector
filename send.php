@@ -31,7 +31,7 @@ if ($send) {
     if (empty($return)) {
         go_home();
 	}
-	send_email('kovalenkojurij93@gmail.com');
+	send_email('kovalenkojurij93@gmail.com', $settings);
     header("Location:{$return}");
 }
 
