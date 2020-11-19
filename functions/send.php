@@ -120,7 +120,7 @@ class Sender
             'phone' => htmlentities($_REQUEST["phone_number"],ENT_COMPAT,'UTF-8'),
             'email' => htmlentities($_REQUEST["email"],ENT_COMPAT,'UTF-8'),
             'description' => 'description',
-            'country' => $this->get_country(),
+            'country' => htmlentities($_REQUEST['country'],ENT_COMPAT,'UTF-8'),
             'additionalField'.$this->api['additional'] => $this->get_additional(),
             'desk_id' => $this->desk_id,
             'responsible' => $this->responsible,
